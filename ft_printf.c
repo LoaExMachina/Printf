@@ -6,7 +6,7 @@
 /*   By: spitte <spitte@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:28:21 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/13 18:50:04 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/14 12:30:59 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void	dispatch(char c, va_list ap)
 	if (c == 'u')
 		ft_unsg_putnbr(va_arg(ap, unsigned int), "0123456789");
 	if (c == 'x')
-		ft_putnbr_base(va_arg(ap, int), "0123456789abcdef");
+		ft_unsg_putnbr(va_arg(ap, int), "0123456789abcdef");
 	if (c == 'X')
-		ft_putnbr_base(va_arg(ap, int), "0123456789ABCDEF");
+		ft_unsg_putnbr(va_arg(ap, int), "0123456789ABCDEF");
 	if (c == '%')
 		ft_putchar_fd('%', 1);
 }
@@ -95,14 +95,14 @@ void	ft_printf(const char *fmt, ...)
 	}
 }
 
-#include <stdio.h>
-#include <limits.h>
-int main()
-{
-	unsigned char *a = malloc(2);
-	ft_printf("FT: %s %c %i %%", "Deter", 'a',100);
-	ft_printf("\n %p \n %p \n %u \n %i %&", NULL, a, -5, INT_MAX); 
-	printf("\nOG: %s %c %i %%", "Deter", 'a',100);
-	printf("\n %p \n %p \n %u \n %i %&", NULL, a, -5, INT_MAX);
-	free(a);
-}
+//#include <stdio.h>
+//#include <limits.h>
+//int main()
+//{
+//	unsigned char *a = malloc(2);
+//	ft_printf("FT: %s %c %i %%", "Deter", 'a',100);
+//	ft_printf("\n %p \n %p \n %u \n %i %&", NULL, a, -5, INT_MAX); 
+//	printf("\nOG: %s %c %i %%", "Deter", 'a',100);
+//	printf("\n %p \n %p \n %u \n %i %&", NULL, a, -5, INT_MAX);
+//	free(a);
+//}

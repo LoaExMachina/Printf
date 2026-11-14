@@ -6,7 +6,7 @@
 /*   By: spitte <spitte@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:28:21 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/14 12:30:59 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/14 12:34:08 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	dispatch(char c, va_list ap)
 	if (c == '%')
 		ft_putchar_fd('%', 1);
 }
+
 void	ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
@@ -84,7 +85,7 @@ void	ft_printf(const char *fmt, ...)
 	va_start (ap, fmt);
 	while (fmt[i])
 	{
-		if (fmt[i] == '%' && fmt[i + 1] && inset(fmt[i + 1],"cspdiuxX%"))
+		if (fmt[i] == '%' && fmt[i + 1] && inset(fmt[i + 1], "cspdiuxX%"))
 		{
 			i++;
 			dispatch(fmt[i], ap);

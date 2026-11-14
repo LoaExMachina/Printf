@@ -4,7 +4,7 @@
 
 ## Description
 
-Re-implementation of the printf function. this one only handles the converions cspdiuxX%.
+Re-implementation of the printf function. this one only handles the conversions cspdiuxX%.
 
 ## Instructions
 
@@ -18,11 +18,11 @@ Other make functions include:
 
 ### Using Program
 
-> #include <stdio.h>
+> #include <ft_printf.h>
 >
->       int printf(const char *format, ...);
+>       int ft_printf(const char *format, ...);
 
-formats consists in '%' followed by one of the following letters:
+formats consists of '%' followed by one of the following letters:
 
 - c for a single character
 - s for a string

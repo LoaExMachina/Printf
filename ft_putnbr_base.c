@@ -6,7 +6,7 @@
 /*   By: spitte <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 17:46:15 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/16 11:32:12 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/16 11:40:58 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ft_putnbr_base(long int nbr, char *base)
 		return ;
 	len = ft_strlen(base);
 	if (nbr == 0)
-		write(1, base[0], 1);
+		write(1, &base[0], 1);
 	else
 	{
 		if (nbr < 0)

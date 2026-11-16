@@ -6,7 +6,7 @@
 /*   By: spitte <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 17:46:15 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/13 16:33:40 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/16 11:32:12 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,21 +35,18 @@ int	isbasevalid(char *base)
 	return (1);
 }
 
-
-void	ft_putnbr_base(int nb, char *base)
+void	ft_putnbr_base(long int nbr, char *base)
 {
 	int		len;
 	char	digit;
 	int		sign;
-	long	nbr;
 
-	nbr = (long)nb;
 	sign = 1;
 	if (isbasevalid(base) == 0)
 		return ;
 	len = ft_strlen(base);
 	if (nbr == 0)
-		write(1, "0", 1);
+		write(1, base[0], 1);
 	else
 	{
 		if (nbr < 0)

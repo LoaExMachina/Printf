@@ -6,7 +6,7 @@
 /*   By: spitte <spitte@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:28:21 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/14 12:34:08 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/16 11:35:55 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	dispatch(char c, va_list ap)
 	if (c == 'p')
 		printptr(va_arg (ap, int));
 	if (c == 'd' || c == 'i')
-		ft_putnbr_base(va_arg(ap, int), "0123456789");
+		ft_putnbr_base((long int)va_arg(ap, int), "0123456789");
 	if (c == 'u')
 		ft_unsg_putnbr(va_arg(ap, unsigned int), "0123456789");
 	if (c == 'x')

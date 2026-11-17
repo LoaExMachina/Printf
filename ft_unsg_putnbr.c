@@ -6,7 +6,7 @@
 /*   By: spitte <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 17:46:15 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/14 12:34:35 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/16 13:55:18 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	ft_unsg_putnbr(unsigned int nbr, char *base)
 	int		len;
 	char	digit;
 
-	if (isbasevalid(base) == 0)
-		return ;
 	len = ft_strlen(base);
 	if (nbr == 0)
 		write(1, "0", 1);

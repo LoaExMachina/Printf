@@ -6,34 +6,12 @@
 /*   By: spitte <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 17:46:15 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/16 11:40:58 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/16 13:53:22 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_printf.h"
-
-int	isbasevalid(char *base)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (base[i])
-	{
-		if (base[i] == '+' || base[i] == '-')
-			return (0);
-		j = i + 1;
-		while (base[j])
-		{
-			if (base[j] == base[i])
-				return (0);
-			j++;
-		}
-		i++;
-	}
-	return (1);
-}
 
 void	ft_putnbr_base(long int nbr, char *base)
 {
@@ -42,8 +20,6 @@ void	ft_putnbr_base(long int nbr, char *base)
 	int		sign;
 
 	sign = 1;
-	if (isbasevalid(base) == 0)
-		return ;
 	len = ft_strlen(base);
 	if (nbr == 0)
 		write(1, &base[0], 1);

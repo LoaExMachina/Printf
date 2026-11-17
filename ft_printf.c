@@ -6,7 +6,7 @@
 /*   By: spitte <spitte@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:28:21 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/16 11:35:55 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/17 09:13:15 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,22 @@ void	printptr(int ptr)
 	}
 }
 
-void	dispatch(char c, va_list ap)
+void	dispatch(char c, va_list *ap)
 {
 	if (c == 'c')
-		ft_putchar_fd((char)va_arg (ap, int), 1);
+		ft_putchar_fd((char)va_arg (*ap, int), 1);
 	if (c == 's')
-		ft_putstr_fd(va_arg (ap, char *), 1);
+		ft_putstr_fd(va_arg (*ap, char *), 1);
 	if (c == 'p')
-		printptr(va_arg (ap, int));
+		printptr(va_arg (*ap, int));
 	if (c == 'd' || c == 'i')
-		ft_putnbr_base((long int)va_arg(ap, int), "0123456789");
+		ft_putnbr_base((long int)va_arg(*ap, int), "0123456789");
 	if (c == 'u')
-		ft_unsg_putnbr(va_arg(ap, unsigned int), "0123456789");
+		ft_unsg_putnbr(va_arg(*ap, unsigned int), "0123456789");
 	if (c == 'x')
-		ft_unsg_putnbr(va_arg(ap, int), "0123456789abcdef");
+		ft_unsg_putnbr(va_arg(*ap, int), "0123456789abcdef");
 	if (c == 'X')
-		ft_unsg_putnbr(va_arg(ap, int), "0123456789ABCDEF");
+		ft_unsg_putnbr(va_arg(*ap, int), "0123456789ABCDEF");
 	if (c == '%')
 		ft_putchar_fd('%', 1);
 }
@@ -88,7 +88,7 @@ void	ft_printf(const char *fmt, ...)
 		if (fmt[i] == '%' && fmt[i + 1] && inset(fmt[i + 1], "cspdiuxX%"))
 		{
 			i++;
-			dispatch(fmt[i], ap);
+			dispatch(fmt[i], &ap);
 		}
 		else
 			ft_putchar_fd(fmt[i], 1);

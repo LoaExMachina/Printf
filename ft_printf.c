@@ -6,7 +6,7 @@
 /*   By: spitte <spitte@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:28:21 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/17 09:13:15 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/19 15:12:24 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,6 @@ int	inset(char c, const char *set)
 		i++;
 	}
 	return (0);
-}
-
-int	countchar(char *str, char c)
-{
-	size_t	i;
-	int		count;
-
-	i = 0;
-	count = 0;
-	while (str[i])
-	{
-		if (str[i] == c)
-			count++;
-		i++;
-	}
-	return (count);
 }
 
 void	printptr(int ptr)

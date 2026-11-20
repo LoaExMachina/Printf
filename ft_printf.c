@@ -6,7 +6,7 @@
 /*   By: spitte <spitte@student.42lehavre.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/13 09:28:21 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/19 15:12:24 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/20 12:38:49 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	dispatch(char c, va_list *ap)
 		ft_putchar_fd('%', 1);
 }
 
-void	ft_printf(const char *fmt, ...)
+int		ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
 	size_t	i;
@@ -78,6 +78,7 @@ void	ft_printf(const char *fmt, ...)
 			ft_putchar_fd(fmt[i], 1);
 		i++;
 	}
+	return(i);
 }
 
 //#include <stdio.h>

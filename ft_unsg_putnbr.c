@@ -6,19 +6,21 @@
 /*   By: spitte <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 17:46:15 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/16 13:55:18 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/20 18:08:27 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_printf.h"
 
-void	ft_unsg_putnbr(unsigned int nbr, char *base)
+int	ft_unsg_putnbr(unsigned int nbr, char *base)
 {
 	int		len;
 	char	digit;
+	int 	nblen;
 
 	len = ft_strlen(base);
+	nblen = findpower_unsgn_base(nbr, len) + 1;
 	if (nbr == 0)
 		write(1, "0", 1);
 	else
@@ -31,6 +33,7 @@ void	ft_unsg_putnbr(unsigned int nbr, char *base)
 			write(1, &digit, 1);
 		}
 	}
+		return(nblen);
 }
 //int main()
 //{

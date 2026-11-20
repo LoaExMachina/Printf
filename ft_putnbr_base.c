@@ -6,21 +6,21 @@
 /*   By: spitte <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/20 17:46:15 by spitte            #+#    #+#             */
-/*   Updated: 2026/11/16 13:53:22 by spitte           ###   ########.fr       */
+/*   Updated: 2026/11/20 17:27:58 by spitte           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "ft_printf.h"
 
-void	ft_putnbr_base(long int nbr, char *base)
+int	ft_putnbr_base(long int nbr, char *base)
 {
-	int		len;
 	char	digit;
 	int		sign;
+	int		nblen;
 
 	sign = 1;
-	len = ft_strlen(base);
+	nblen = findpower_base(nbr, ft_strlen(base)) + 1 + (nbr < 0);
 	if (nbr == 0)
 		write(1, &base[0], 1);
 	else
@@ -32,22 +32,25 @@ void	ft_putnbr_base(long int nbr, char *base)
 		}
 		if (nbr != 0)
 		{
-			if (nbr / len != 0)
-				ft_putnbr_base(sign * (nbr / len), base);
-			digit = base[(sign * nbr) % len];
+			if (nbr / ft_strlen(base) != 0)
+				ft_putnbr_base(sign * (nbr / ft_strlen(base)), base);
+			digit = base[(sign * nbr) % ft_strlen(base)];
 			write(1, &digit, 1);
 		}
 	}
+	return (nblen);
 }
+//#include <stdio.h>
 //int main()
 //{
-//	ft_putnbr_base(42,"01");
-//	write(1,"\n",1);
-//	ft_putnbr_base(-42,"po-eyvif");
-//	write(1,"\n",1);
-//	ft_putnbr_base(0,"0123456789");
-//	write(1,"\n",1);
-//	ft_putnbr_base(2147483647,"0123456789ABCDEF");
-//	write(1,"\n",1);
-//	ft_putnbr_base(-2147483648,"poneyvif");
+//	int a = ft_putnbr_base(3,"01");
+//	printf("\n %d",a);
+//	//write(1,"\n",1);
+////	ft_putnbr_base(-42,"po-eyvif");
+////	write(1,"\n",1);
+////	ft_putnbr_base(0,"0123456789");
+////	write(1,"\n",1);
+////	ft_putnbr_base(2147483647,"0123456789ABCDEF");
+////	write(1,"\n",1);
+////	ft_putnbr_base(-2147483648,"poneyvif");
 //}
